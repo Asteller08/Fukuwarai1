@@ -29,17 +29,14 @@ public class MouseController : MonoBehaviour
             countdown -= Time.deltaTime;
             count = (int)countdown;
         }
-    }
-
-
-    void OnMouseDown()
-    {
-        if (countdown <= 0)
+        else
         {
-            this.screenPoint = Camera.main.WorldToScreenPoint(transform.position);
-            this.offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+            if (Input.GetMouseButtonDown(0))
+            {
+                this.screenPoint = Camera.main.WorldToScreenPoint(transform.position);
+                this.offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+            }
         }
-
     }
 
     void OnMouseDrag()
