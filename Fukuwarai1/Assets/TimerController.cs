@@ -19,6 +19,8 @@ public class TimerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        CountText.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
+        timerText.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     }
 
     // Update is called once per frame
@@ -56,6 +58,7 @@ public class TimerController : MonoBehaviour
             if (totalTime < 0)
             {
                 text.SetActive(false);
+                timerText.text = "";
             }
         }
 
