@@ -8,7 +8,7 @@ public class MouseController : MonoBehaviour
 
     public Text NameText;
     public string name;
-    float countdown = 6f;
+    float countdown = 6.0f;
     int count;
 
     Vector3 screenPoint;
@@ -29,17 +29,12 @@ public class MouseController : MonoBehaviour
             countdown -= Time.deltaTime;
             count = (int)countdown;
         }
-    }
-
-
-    void OnMouseDown()
-    {
-        if (countdown <= 0)
-        {
-            this.screenPoint = Camera.main.WorldToScreenPoint(transform.position);
-            this.offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+        if (countdown <= 0) {
+            if (Input.GetMouseButtonDown(0)) {
+                this.screenPoint = Camera.main.WorldToScreenPoint(transform.position);
+                this.offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+            }
         }
-
     }
 
     void OnMouseDrag()

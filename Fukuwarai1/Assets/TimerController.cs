@@ -11,6 +11,7 @@ public class TimerController : MonoBehaviour
     int seconds;
     public float countdown;
     int count;
+    float hintcount = -1.0f;
     
 
     // Use this for initialization
@@ -39,6 +40,21 @@ public class TimerController : MonoBehaviour
                 totalTime -= Time.deltaTime;
                 seconds = (int)totalTime;
                 timerText.text = seconds.ToString();
+
+                if (Input.GetMouseButtonDown(1))
+                {
+                    hintcount = 1.0f;
+                    color.a = 0.0f;
+                    gameObject.GetComponent<Renderer>().material.color = color;
+
+                }
+
+                if(hintcount >= 0.0f)
+                {
+                    color.a = 0.0f;
+                    gameObject.GetComponent<Renderer>().material.color = color;
+                    hintcount -= Time.deltaTime;
+                }
             }
             if (totalTime < 0)
             {
