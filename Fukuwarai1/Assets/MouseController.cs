@@ -11,8 +11,6 @@ public class MouseController : MonoBehaviour
     public float totalTime;
     public float countdown;
 
-    
-
     Vector3 screenPoint;
     Vector3 offset;
 

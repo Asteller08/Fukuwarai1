@@ -13,14 +13,8 @@ public class SoundController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void onClickAct()
     {
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            audioSource = GetComponent<AudioSource>();
-
-        }
+        audioSource.PlayOneShot(sound1);
     }
 }
