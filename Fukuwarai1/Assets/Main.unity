@@ -532,11 +532,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc0247c26d6b0864f87105072eb99f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 160382930}
-  CountText: {fileID: 1753252837}
+  playText: {fileID: 160382930}
+  startText: {fileID: 1753252837}
   text: {fileID: 33092250}
-  totalTime: 11
-  countdown: 6
 --- !u!4 &190139132
 Transform:
   m_ObjectHideFlags: 0
@@ -895,10 +893,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf521df05b7cefe42a191345f71a17af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeController: {fileID: 190139131}
   NameText: {fileID: 47265251}
   name: Nose
-  totalTime: 11
-  countdown: 6
 --- !u!50 &855883834
 Rigidbody2D:
   serializedVersion: 4
@@ -1346,10 +1343,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf521df05b7cefe42a191345f71a17af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeController: {fileID: 190139131}
   NameText: {fileID: 47265251}
   name: Mouth
-  totalTime: 11
-  countdown: 6
 --- !u!212 &1028353215
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1742,10 +1738,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf521df05b7cefe42a191345f71a17af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeController: {fileID: 190139131}
   NameText: {fileID: 47265251}
   name: RightEye
-  totalTime: 11
-  countdown: 6
 --- !u!50 &1238647293
 Rigidbody2D:
   serializedVersion: 4
@@ -2379,10 +2374,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf521df05b7cefe42a191345f71a17af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeController: {fileID: 190139131}
   NameText: {fileID: 47265251}
   name: LeftEye
-  totalTime: 11
-  countdown: 6
 --- !u!50 &2075803125
 Rigidbody2D:
   serializedVersion: 4
@@ -2675,5 +2669,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1610278490}
-  totalTime: 11
-  countdown: 6
+  timeController: {fileID: 190139131}

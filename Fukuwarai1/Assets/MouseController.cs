@@ -5,35 +5,46 @@ using UnityEngine.UI;
 
 public class MouseController : MonoBehaviour
 {
-
+    public TimerController timeController;
     public Text NameText;
     public string name;
-    public float totalTime;
-    public float countdown;
+
+    float playT;
+    float startT;
+
+    float sumTime1 = 0.0f;
+    float sumTime2 = 0.0f;
+    float judge = 0.0f;
+    float judge2 = 0.0f;
 
     Vector3 screenPoint;
     Vector3 offset;
 
     Rigidbody2D rb;
 
-
     void Start()
-    {
+    {  
         rb = this.GetComponent<Rigidbody2D>();
         NameText.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
+        playT = timeController.PlayTime;
+        startT = timeController.StartTime;
     }
 
     void Update()
     {
-        if (countdown >= 0)
+        
+        if (judge >= 0)
         {
-            countdown -= Time.deltaTime;
+            sumTime1 += Time.deltaTime;
+            judge = startT - sumTime1;
+
         }
         else
         {
-            if (totalTime >= 0)
+            if (judge2 >= 0)
             {
-                totalTime -= Time.deltaTime;
+                sumTime2 += Time.deltaTime;
+                judge2 = playT - sumTime2;
                 NameText.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -52,7 +63,7 @@ public class MouseController : MonoBehaviour
 
     void OnMouseDrag()
     {
-        if (countdown <= 0 & totalTime >= 0)
+        if (judge <= 0 & judge2 >= 0)
         {
             Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
             Vector3 currentPosition = Camera.main.ScreenToWorldPoint(currentScreenPoint) + this.offset;

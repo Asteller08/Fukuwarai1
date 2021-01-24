@@ -6,41 +6,52 @@ using UnityEngine.UI;
 
 public class TimerController : MonoBehaviour
 {
-    public Text timerText;
-    public Text CountText;
+    public Text playText;
+    public Text startText;
     [SerializeField] GameObject text;
-    public float totalTime;
-    int seconds;
-    public float countdown;
-    int count;
+    private float playTime = 11.0f;
+    public float PlayTime
+    {
+        get { return this.playTime; }
+        set { playTime = value; }
+    }
+     int seconds;
+
+    private float startTime = 6.0f;
+    public float StartTime
+    {
+        get { return this.startTime; }
+        set { startTime = value; }
+    }
+    int start;
     float hintTime = -1.0f;
     int hintcount = 0;
 
     // Use this for initialization
     void Start()
     {
-        CountText.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
-        timerText.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+        startText.color = new Color(0.0f, 0.0f, 0.0f, 1.0f);
+        playText.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (countdown >= 0)
+        if (startTime >= 0)
         {
-            countdown -= Time.deltaTime;
-            count = (int)countdown;
-            CountText.text = count.ToString();
+            startTime -= Time.deltaTime;
+            start = (int)startTime;
+            startText.text = start.ToString();
         }
-        if (countdown <= 0)
+        if (startTime <= 0)
         {
-            if (totalTime >= 0)
+            if (playTime >= 0)
             {
                 text.SetActive(true);
-                CountText.text = "";
-                totalTime -= Time.deltaTime;
-                seconds = (int)totalTime;
-                timerText.text = seconds.ToString();
+                startText.text = "";
+                playTime -= Time.deltaTime;
+                seconds = (int)playTime;
+                playText.text = seconds.ToString();
 
                 if (hintcount <= 0 & Input.GetMouseButtonDown(1))
                 {
@@ -55,10 +66,10 @@ public class TimerController : MonoBehaviour
                 }
 
             }
-            if (totalTime < 0)
+            if (playTime < 0)
             {
                 text.SetActive(false);
-                timerText.text = "";
+                playText.text = "";
             }
         }
 

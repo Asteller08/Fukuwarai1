@@ -6,32 +6,43 @@ using UnityEngine;
 public class MidleGround : MonoBehaviour
 {
     [SerializeField] GameObject text;
-    public float totalTime;
-    int seconds;
-    public float countdown;
-    int count;
+    public TimerController timeController;
+
+    float playT;
+    float startT;
+
+    float sumTime = 0.0f;
+    float sumTime2 = 0.0f;
+    float judge = 0.0f;
+    float judge2 = 0.0f;
+
+
     // Use this for initialization
     void Start()
     {
-       
+        playT = timeController.PlayTime;
+        startT = timeController.StartTime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (countdown >= 0)
+        if (judge >= 0)
         {
-            countdown -= Time.deltaTime;
+            sumTime += Time.deltaTime;
+            judge = startT - sumTime;
 
         }
-        if (countdown < 0)
+        else
         {
-            if (totalTime >= 0)
+            judge = -100;
+            if (judge2 >= 0)
             {
-                totalTime -= Time.deltaTime;
+                sumTime2 += Time.deltaTime;
+                judge2 = playT - sumTime2;
                 text.SetActive(true);
             }
-            if (totalTime < 0)
+            else
             {
                 text.SetActive(false);
             }
